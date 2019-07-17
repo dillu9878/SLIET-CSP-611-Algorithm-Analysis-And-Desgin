@@ -1,5 +1,5 @@
 from random import randint
-from time import time, sleep
+from time import time
 
 
 def linear_search(arr, num):
