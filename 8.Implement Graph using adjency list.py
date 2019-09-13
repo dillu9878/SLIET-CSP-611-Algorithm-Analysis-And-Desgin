@@ -26,7 +26,7 @@ class Graph:
             print('Node {} existed.'.format(u))
 
         else:
-            print('Node {} not existed.')
+            print('Node {} not existed.'.format(u))
 
     def addEdge(self, u, v):
         if u not in self.node_list:

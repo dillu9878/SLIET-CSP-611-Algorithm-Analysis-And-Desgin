@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>8.Implement Graph using adjency list.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008080; font-weight: bold;}
+.s3 { color: #0000ff;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+8.Implement Graph using adjency list.py</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span>Graph:
+    <span class="s0">def </span>__init__(self):
+        self.node_list = []
+        self.child_list = []
+
+    <span class="s0">def </span>addNode(self, u):
+        <span class="s0">if </span>u <span class="s0">not in </span>self.node_list:
+            self.node_list.append(u)
+        <span class="s0">else</span>:
+            print()
+
+    <span class="s0">def </span>deleteNode(self, u):
+        <span class="s0">if </span>u <span class="s0">in </span>self.node_list:
+
+            <span class="s0">for </span>i <span class="s0">in </span>range(len(self.child_list)):
+                <span class="s0">if </span>u  <span class="s0">in </span>self.child_list[i]:
+                    self.child_list[i].remove(u)
+
+            self.node_list.remove(u)
+            print(<span class="s2">'Node {} Deleted.'</span>.format(u))
+        <span class="s0">else</span>:
+            print(<span class="s2">'Node {} not existed.'</span>.format(u))
+
+    <span class="s0">def </span>searchNode(self, u):
+        <span class="s0">if </span>u <span class="s0">in </span>self.node_list:
+            print(<span class="s2">'Node {} existed.'</span>.format(u))
+
+        <span class="s0">else</span>:
+            print(<span class="s2">'Node {} not existed.'</span>)
+
+    <span class="s0">def </span>addEdge(self, u, v):
+        <span class="s0">if </span>u <span class="s0">not in </span>self.node_list:
+            self.node_list.append(u)
+            self.node_list.append(v)
+            self.child_list.append([v])
+            print(<span class="s2">'({}, {})Edge is Added'</span>.format(u, v))
+
+        <span class="s0">else</span>:
+            i = self.node_list.index(u)
+            <span class="s0">if </span>v <span class="s0">not in </span>self.node_list:
+                self.node_list.append(v)
+            self.child_list[i].append(v)
+            print(<span class="s2">'({}, {})Edge is Added'</span>.format(u, v))
+
+    <span class="s0">def </span>deleteEdge(self, u, v):
+        <span class="s0">if </span>u <span class="s0">in </span>self.node_list:
+            i = self.node_list.index(u)
+            temp = self.child_list[i]
+
+            <span class="s0">if </span>v <span class="s0">in </span>temp:
+                <span class="s0">if </span>len(temp) == <span class="s3">1</span>:
+                    self.node_list.remove(u)
+                    self.child_list.remove(temp)
+                    print(<span class="s2">'({}, {})Edge is Deleted'</span>.format(u, v))
+
+                <span class="s0">else</span>:
+                    self.child_list[i].remove(v)
+                    print(<span class="s2">'({}, {})Edge is Deleted'</span>.format(u, v))
+
+            <span class="s0">else</span>:
+                print(<span class="s2">'({}, {})Edge is Not Exist'</span>.format(u, v))
+
+        <span class="s0">else</span>:
+            print(<span class="s2">'({}, {})Edge is Not Exist'</span>.format(u, v))
+
+    <span class="s0">def </span>searchEdge(self, u, v):
+        <span class="s0">if </span>u <span class="s0">in </span>self.node_list:
+            i = self.node_list.index(u)
+            <span class="s0">if </span>v <span class="s0">in </span>self.child_list[i]:
+                print(<span class="s2">'({}, {}) Edge is Existed'</span>.format(u, v))
+
+            <span class="s0">else</span>:
+                print(<span class="s2">'({}, {}) Edge is Not Exist'</span>.format(u, v))
+
+        <span class="s0">else</span>:
+            print(<span class="s2">'({}, {})Edge is Not Exist'</span>.format(u, v))
+
+
+<span class="s0">def </span>main():
+    G1 = Graph()
+    print(<span class="s2">'1.Add Node </span><span class="s0">\n</span><span class="s2">2.Delete Node </span><span class="s0">\n</span><span class="s2">3.Search Node </span><span class="s0">\n</span><span class="s2">4.Add Edge </span><span class="s0">\n</span><span class="s2">5.Delete Edge </span><span class="s0">\n</span><span class="s2">6.Search Edge </span><span class="s0">\n</span><span class="s2">7.Done'</span>)
+    flag = <span class="s3">1</span>
+    <span class="s0">while </span>flag:
+        inp = input(<span class="s2">'Enter Your Option: '</span>)
+        <span class="s0">if </span>inp == <span class="s2">'1'</span>:
+            u = int(input(<span class="s2">'Enter Node: '</span>))
+            G1.addNode(u)
+
+        <span class="s0">elif </span>inp == <span class="s2">'2'</span>:
+            u = int(input(<span class="s2">'Enter Node: '</span>))
+            G1.deleteNode(u)
+
+        <span class="s0">elif </span>inp == <span class="s2">'3'</span>:
+            u = int(input(<span class="s2">'Enter Node: '</span>))
+            G1.searchNode(u)
+
+        <span class="s0">elif </span>inp == <span class="s2">'4'</span>:
+            u, v = map(int, input(<span class="s2">'Enter u v: '</span>).split())
+            G1.addEdge(u, v)
+
+        <span class="s0">elif </span>inp == <span class="s2">'5'</span>:
+            u, v = map(int, input(<span class="s2">'Enter u v: '</span>).split())
+            G1.deleteEdge(u, v)
+
+        <span class="s0">elif </span>inp == <span class="s2">'6'</span>:
+            (u, v) = map(int, input(<span class="s2">'Enter u v: '</span>).split())
+            G1.searchEdge(u, v)
+
+        <span class="s0">else</span>:
+            flag = <span class="s3">0</span>
+
+
+<span class="s0">if </span>__name__ == <span class="s2">'__main__'</span>:
+    main()</pre>
+</body>
+</html>

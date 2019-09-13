@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>6.queueUsingLinkedList.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008080; font-weight: bold;}
+.s3 { color: #0000ff;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+6.queueUsingLinkedList.py</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span>Node:
+    <span class="s0">def </span>__init__(self, data):
+        self.data = data
+        self.next = <span class="s0">None</span>
+
+
+<span class="s0">class </span>LinkedList:
+    <span class="s0">def </span>__init__(self):
+        self.start = <span class="s0">None</span>
+
+    <span class="s0">def </span>add_to_end(self, data):
+        temp1 = Node(data)
+
+        <span class="s0">if </span>self.start <span class="s0">is None</span>:
+            self.start = temp1
+        <span class="s0">else</span>:
+            temp2 = self.start
+            <span class="s0">while </span>temp2.next:
+                temp2 = temp2.next
+            temp2.next = temp1
+
+    <span class="s0">def </span>delete_from_start(self):
+        <span class="s0">if </span>self.start <span class="s0">is None</span>:
+            <span class="s0">return None</span>
+        <span class="s0">elif </span>self.start.next <span class="s0">is None</span>:
+            data = self.start.data
+            self.start = <span class="s0">None</span>
+            <span class="s0">return </span>data
+        <span class="s0">else</span>:
+            data = self.start.data
+            self.start = self.start.next
+            <span class="s0">return </span>data
+
+
+<span class="s0">class </span>Queue:
+    <span class="s0">def </span>__init__(self):
+        self.L1 = LinkedList()
+
+    <span class="s0">def </span>enqueue(self, data):
+        self.L1.add_to_end(data)
+
+    <span class="s0">def </span>dequeue(self):
+        d = self.L1.delete_from_start()
+        <span class="s0">return </span>d
+
+
+<span class="s0">def </span>main():
+    Q1 = Queue()
+    print(<span class="s2">'1.Enqueue </span><span class="s0">\n</span><span class="s2">2.Dequeue </span><span class="s0">\n</span><span class="s2">3.Done'</span>)
+    flag = <span class="s3">1</span>
+    <span class="s0">while </span>flag:
+        inp = input(<span class="s2">'Enter Your Option: '</span>)
+        <span class="s0">if </span>inp == <span class="s2">'1'</span>:
+            data = input(<span class="s2">'Enter data: '</span>)
+            Q1.enqueue(data)
+        <span class="s0">elif </span>inp == <span class="s2">'2'</span>:
+            data = Q1.dequeue()
+            print(<span class="s2">'Dequeued Data is: '</span>, data)
+        <span class="s0">else</span>:
+            flag = <span class="s3">0</span>
+
+
+<span class="s0">if </span>__name__ == <span class="s2">'__main__'</span>:
+    main()</pre>
+</body>
+</html>
