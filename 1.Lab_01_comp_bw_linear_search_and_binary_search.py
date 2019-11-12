@@ -35,7 +35,7 @@ def main():
         size = int(input('Enter size of sorted array: '))
         arr = arr_generator(size)
         num = arr[randint(1, size)]
-        print(arr)
+        #print(arr)
         t1 = time()
         print('Element {} found in list at index {} using linear search'.format(num, linear_search(arr, num)))
         t2 = time()

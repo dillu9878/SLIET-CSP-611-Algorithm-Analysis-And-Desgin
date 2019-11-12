@@ -9,7 +9,7 @@ def selectionSort(arr):
 
 
 def main():
-    l = list(map(int, input().split()))
+    l = list(map(int, input('Enter array: ').split()))
     print('Sorted  List: ', selectionSort(l))
 
 

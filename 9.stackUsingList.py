@@ -21,47 +21,21 @@ class Stack:
             return d
 
 
-
-class Queue:
-    def __init__(self):
-        self.front =  None
-        self.rear = None
-        self.arr = []
-
-    def enqueue(self, data):
-        if self.rear is None:
-            self.rear = 1
-            self.front = 1
-        else:
-            self.rear += 1
-        self.arr.append(data)
-
-    def dequeue(self):
-        if self.front is None:
-            return 'Queue is Empty'
-        else:
-            d = self.arr.pop(0)
-            self.front += 1
-            if self.front >self.rear:
-                self.front = None
-                self.rear = None
-
-            return d
-
-
 def main():
     S1 = Stack()
-    S1.push(5)
-    S1.push(10)
-    print(S1.pop())
-    print(S1.pop())
-    print(S1.pop())
-    Q1 = Queue()
-    Q1.enqueue(5)
-    Q1.enqueue(10)
-    print(Q1.dequeue())
-    print(Q1.dequeue())
-    print(Q1.dequeue())
+    print('a.push \nb.pop \nc.done')
+
+    while 1:
+        i = input('Enter option: ')
+        if i == 'a':
+            n = int(input('Enter No: '))
+            S1.push(n)
+        elif i == 'b':
+            poped = S1.pop()
+            print(f'poped element is: {poped}')
+        else:
+            break
+
 
 
 if __name__ == '__main__':

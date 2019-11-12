@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>9.stackUsingList.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #0000ff;}
+.s3 { color: #008080; font-weight: bold;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+9.stackUsingList.py</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span>Stack:
+    <span class="s0">def </span>__init__(self):
+        self.top = <span class="s0">None</span>
+        self.arr = []
+
+    <span class="s0">def </span>push(self, data):
+        <span class="s0">if </span>self.top <span class="s0">is None</span>:
+            self.arr.append(data)
+            self.top = <span class="s2">1</span>
+        <span class="s0">else</span>:
+            self.arr.append(data)
+            self.top += <span class="s2">1</span>
+
+    <span class="s0">def </span>pop(self):
+        <span class="s0">if </span>self.top <span class="s0">is None</span>:
+            <span class="s0">return </span><span class="s3">&quot;Stack is Empty&quot;</span>
+        <span class="s0">else</span>:
+            d = self.arr.pop()
+            <span class="s0">if </span>len(self.arr) == <span class="s2">0</span>:
+                self.top = <span class="s0">None</span>
+            <span class="s0">return </span>d
+
+
+
+<span class="s0">class </span>Queue:
+    <span class="s0">def </span>__init__(self):
+        self.front =  <span class="s0">None</span>
+        self.rear = <span class="s0">None</span>
+        self.arr = []
+
+    <span class="s0">def </span>enqueue(self, data):
+        <span class="s0">if </span>self.rear <span class="s0">is None</span>:
+            self.rear = <span class="s2">1</span>
+            self.front = <span class="s2">1</span>
+        <span class="s0">else</span>:
+            self.rear += <span class="s2">1</span>
+        self.arr.append(data)
+
+    <span class="s0">def </span>dequeue(self):
+        <span class="s0">if </span>self.front <span class="s0">is None</span>:
+            <span class="s0">return </span><span class="s3">'Queue is Empty'</span>
+        <span class="s0">else</span>:
+            d = self.arr.pop(<span class="s2">0</span>)
+            self.front += <span class="s2">1</span>
+            <span class="s0">if </span>self.front &gt;self.rear:
+                self.front = <span class="s0">None</span>
+                self.rear = <span class="s0">None</span>
+
+            <span class="s0">return </span>d
+
+
+<span class="s0">def </span>main():
+    S1 = Stack()
+    S1.push(<span class="s2">5</span>)
+    S1.push(<span class="s2">10</span>)
+    print(S1.pop())
+    print(S1.pop())
+    print(S1.pop())
+    Q1 = Queue()
+    Q1.enqueue(<span class="s2">5</span>)
+    Q1.enqueue(<span class="s2">10</span>)
+    print(Q1.dequeue())
+    print(Q1.dequeue())
+    print(Q1.dequeue())
+
+
+<span class="s0">if </span>__name__ == <span class="s3">'__main__'</span>:
+        main()</pre>
+</body>
+</html>
