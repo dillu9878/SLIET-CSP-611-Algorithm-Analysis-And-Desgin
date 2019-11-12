@@ -23,14 +23,14 @@ class Stack:
 
 def main():
     S1 = Stack()
-    print('a.push \nb.pop \nc.done')
+    print('1.push \n2.pop \n3.done')
 
     while 1:
-        i = input('Enter option: ')
-        if i == 'a':
+        i = input('Enter choice: ')
+        if i == '1':
             n = int(input('Enter No: '))
             S1.push(n)
-        elif i == 'b':
+        elif i == '1':
             poped = S1.pop()
             print(f'poped element is: {poped}')
         else:

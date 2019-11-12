@@ -31,11 +31,11 @@ def main():
 
 
     while 1:
-        i = input('Enter option: ')
-        if i == 'a':
-            n = int(input('Enter No: '))
+        i = input('Enter choice: ')
+        if i == '1':
+            n = int(input('Enter Number: '))
             Q1.enqueue(n)
-        elif i == 'b':
+        elif i == '2':
             poped = Q1.dequeue()
             print(f'dequeued element is: {poped}')
         else:

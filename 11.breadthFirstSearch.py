@@ -30,13 +30,13 @@ class Graph:
         if currentNode not in self.visited:
             self.temp = self.temp[1:] + self.g[currentNode]
 
-            print(str(currentNode) , end = '----> ')
+            print(str(currentNode) , end = '->>> ')
             self.visited[currentNode] = True
         else:
             self.temp = self.temp[1:]
 
         if self.temp == []:
-            print('terminated')
+            #print('terminated')
             return 'Done'
         else:
             currentNode = self.temp[0]
@@ -46,7 +46,7 @@ class Graph:
 def main():
     (v, e) = map(int, input('Enter number of vertex and edge: ').split())
     G1 = Graph(v, e)
-    start = int(input('Enter root node: '))
+    start = int(input('Enter start node: '))
     G1.bfs(start)
 
 
