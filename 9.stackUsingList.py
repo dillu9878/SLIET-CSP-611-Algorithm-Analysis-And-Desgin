@@ -30,7 +30,7 @@ def main():
         if i == '1':
             n = int(input('Enter No: '))
             S1.push(n)
-        elif i == '1':
+        elif i == '2':
             poped = S1.pop()
             print(f'poped element is: {poped}')
         else:
